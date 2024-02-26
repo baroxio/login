@@ -24,17 +24,23 @@ const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 
 app.use(session({
+    name: 'app_rigo',
     secret:'secret',
-    resave:true,
-    saveUnitialized: true
+    resave: false,
+    saveUninitialized: true
 }));
 
 
 // 8 - Invocamos al modulo de conexion de la BDC
 const connection = require('./database/db');
 
+
+// 9. Estableciendo las rutas
 app.get('/', (req, res) => {
-    res.send('Hola Mundo!!!!!!'); 
+    res.render('index'); 
+});
+app.get('/login', (req, res) => {
+    res.render('login'); 
 });
 
 app.listen(3000, (req, res) => {
