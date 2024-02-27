@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resource/css/style.css">
     <title>Register</title>
 </head>
 <body>
@@ -15,8 +15,17 @@
             <label for="user" >User Name</label>
             <input type="text" name="user" required>
 
+            <label for="name" >Full Name</label>
+            <input type="text" name="name" required>
+
             <label for="pass" >Password</label>
-            <input type="text" name="pass" required>
+            <input type="password" name="pass" required>
+
+            <label for="rol">Rol</label>
+            <select name="rol" id="rol" class="select-css">
+                <option value="admin" selected>Admin</option>
+                <option value="data entry">Data Entry</option>
+            </select>
 
             <div style="display: inline;">
                 <a href="/" class="btn-cancel">Cancel</a>
@@ -25,6 +34,22 @@
 
         </form>
     </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                test: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %> ,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location='/ <%= ruta %>'
+            })
+        </script>
+        <% } %>
 
 </body>
 </html>
