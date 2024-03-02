@@ -1,14 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="resource/css/style.css">
-</head>
-<body>
-    <h1>Pagina de Inicio</h1>
-    <h2>El usuario conectado es:  </h2>
-</body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <title>Welcome</title>
+    <style>      
+    
+    </style>
+  </head>
+  <body class="text-center">         
+          <div class="contenedor">
+            <h1>Página de Inicio</h1>
+            <% if (login) { %>                
+                <h1>Usuario conectado: <strong><%= name %></strong></h1>                        
+                <a href="logout" class="a-logout">Logout</a>
+            <%} else { %>
+                <h1><strong><%= name %></strong></h1>   
+                <a href="login" class="a-login">Ir a Login</a>
+            <% } %>
+          </div>
+  </body>
 </html>
